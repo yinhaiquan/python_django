@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="project@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="project">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="t_interface_auth"/>
+    <table id="8" parent="2" name="t_role_permission_rel">
+      <Comment>角色与权限关系表</Comment>
+    </table>
+    <table id="9" parent="2" name="t_shiro_permission">
+      <Comment>权限表/菜单表</Comment>
+    </table>
+    <table id="10" parent="2" name="t_shiro_role">
+      <Comment>角色表/组织结构</Comment>
+    </table>
+    <table id="11" parent="2" name="t_shiro_user">
+      <Comment>用户表信息</Comment>
+    </table>
+    <table id="12" parent="2" name="t_user_role_rel">
+      <Comment>用户与角色关系表</Comment>
+    </table>
+    <column id="13" parent="7" name="n_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="7" name="c_method_name">
+      <Position>2</Position>
+      <Comment>接口名称</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="15" parent="7" name="c_class_name">
+      <Position>3</Position>
+      <Comment>接口类名</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="16" parent="7" name="b_iSign">
+      <Position>4</Position>
+      <Comment>是否签名 1是(true) 0否(false)</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="17" parent="7" name="b_isLogin">
+      <Position>5</Position>
+      <Comment>是否验证登录token 1是(true) 0否(false)</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="18" parent="7" name="t_create_date">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="19" parent="7" name="t_update_date">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="20" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>n_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="8" name="n_role_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="8" name="n_permission_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="9" name="n_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="9" name="c_name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="25" parent="9" name="c_url">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="9" name="c_identity">
+      <Position>4</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <column id="27" parent="9" name="t_createtime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="28" parent="9" name="n_status">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="29" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>n_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="10" name="n_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="10" name="c_ids">
+      <Position>2</Position>
+      <Comment>角色依赖关系，包含子角色，则用逗号隔开eg:1,2,3</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="32" parent="10" name="c_name">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="33" parent="10" name="c_identity">
+      <Position>4</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <column id="34" parent="10" name="n_status">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="35" parent="10" name="t_createtime">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="36" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>n_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="11" name="n_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="11" name="c_name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="39" parent="11" name="c_password">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="40" parent="11" name="n_sex">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="11" name="t_createtime">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="42" parent="11" name="c_phone_number">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="43" parent="11" name="c_email">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="44" parent="11" name="c_address">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="45" parent="11" name="n_status">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="46" parent="11" name="c_number">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="47" parent="11" name="t_birthday">
+      <Position>11</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0000-00-00 00:00:00&apos;</DefaultExpression>
+    </column>
+    <key id="48" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>n_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="12" name="n_user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="12" name="n_role_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+  </database-model>
+</dataSource>
